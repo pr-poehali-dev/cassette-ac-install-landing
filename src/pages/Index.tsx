@@ -17,134 +17,145 @@ export default function Index() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "🎉 Заявка принята!",
-      description: "Наш специалист свяжется с вами через 10 минут",
+      title: "✅ Заявка отправлена!",
+      description: "Мастер свяжется с вами в течение 15 минут",
     });
     setFormData({ name: '', phone: '', area: '' });
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-accent/10 pointer-events-none" />
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/10">
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-secondary/20 pointer-events-none" />
       
-      <nav className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/70 border-b border-border/50">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/80 border-b border-border/40 shadow-sm">
         <div className="container mx-auto px-4 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-2xl blur-sm opacity-70"></div>
-                <div className="relative w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-xl">
-                  <Icon name="Wind" size={30} className="text-white" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-coral rounded-2xl blur-md opacity-60"></div>
+                <div className="relative w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
+                  <Icon name="Wrench" size={24} className="text-white" />
                 </div>
               </div>
               <div>
-                <h1 className="text-2xl font-black bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                  DuctCool
+                <h1 className="text-xl font-black bg-gradient-to-r from-primary via-secondary to-coral bg-clip-text text-transparent">
+                  ClimateInstall
                 </h1>
-                <p className="text-xs font-semibold text-muted-foreground">Канальные системы</p>
+                <p className="text-xs font-medium text-muted-foreground">Монтаж с гарантией</p>
               </div>
             </div>
             
-            <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold">
-              <a href="#advantages" className="hover:text-primary transition-colors">Преимущества</a>
-              <a href="#how" className="hover:text-primary transition-colors">Как работает</a>
-              <a href="#projects" className="hover:text-primary transition-colors">Проекты</a>
+            <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold">
+              <a href="#services" className="hover:text-primary transition-colors">Услуги</a>
+              <a href="#stages" className="hover:text-primary transition-colors">Этапы</a>
               <a href="#prices" className="hover:text-primary transition-colors">Цены</a>
-              <a href="#faq" className="hover:text-primary transition-colors">FAQ</a>
+              <a href="#guarantee" className="hover:text-primary transition-colors">Гарантия</a>
             </nav>
 
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary shadow-lg hidden md:flex"
+              className="bg-gradient-to-r from-coral to-coral/90 hover:from-coral/90 hover:to-coral/80 shadow-lg shadow-coral/30 hidden md:flex font-bold"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Icon name="Sparkles" size={18} className="mr-2" />
-              Бесплатный расчёт
+              <Icon name="Phone" size={18} className="mr-2" />
+              Вызвать мастера
             </Button>
           </div>
         </div>
       </nav>
 
-      <section className="relative pt-32 pb-24 px-4 lg:px-8 overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 px-4 lg:px-8">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 relative z-10">
-              <Badge className="bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/30 px-5 py-2.5 text-sm font-bold">
-                ⚡ Скрытое охлаждение для вашего пространства
+              <Badge className="bg-coral/10 text-coral border-coral/30 px-4 py-2 text-sm font-bold inline-flex items-center gap-2">
+                <Icon name="BadgeCheck" size={16} />
+                Сертифицированные монтажники
               </Badge>
               
-              <h2 className="text-6xl lg:text-8xl font-black leading-none">
-                <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                  Канальные
+              <h2 className="text-5xl lg:text-7xl font-black leading-tight">
+                <span className="bg-gradient-to-r from-primary via-secondary to-coral bg-clip-text text-transparent">
+                  Установка
                 </span>
                 <br />
-                кондиционеры
+                канальных<br />кондиционеров
               </h2>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed font-medium">
-                Невидимая система климат-контроля для квартир, пентхаусов и коммерческих помещений. 
-                Полная свобода дизайна без видимых блоков.
+              <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                Профессиональный монтаж скрытых систем кондиционирования под ключ. 
+                Работаем с квартирами, домами и коммерческими объектами.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-lg h-16 px-10 shadow-2xl shadow-primary/50 font-bold"
+                  className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-lg h-14 px-8 shadow-xl shadow-primary/30 font-bold"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  <Icon name="Zap" size={24} className="mr-2" />
-                  Получить расчёт за 2 минуты
+                  <Icon name="Calculator" size={22} className="mr-2" />
+                  Рассчитать стоимость
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="text-lg h-16 px-10 border-2 font-bold hover:bg-accent/10 hover:border-accent"
+                  className="text-lg h-14 px-8 border-2 border-accent font-bold hover:bg-accent hover:text-white"
                 >
-                  <Icon name="PlayCircle" size={24} className="mr-2" />
-                  Смотреть портфолио
+                  <Icon name="MessageCircle" size={22} className="mr-2" />
+                  Онлайн-консультация
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 pt-6">
+              <div className="grid grid-cols-3 gap-4 pt-4">
                 {[
-                  { value: '500+', label: 'Установок', color: 'from-primary to-primary/70' },
-                  { value: '7 лет', label: 'Гарантия', color: 'from-secondary to-secondary/70' },
-                  { value: '24/7', label: 'Поддержка', color: 'from-accent to-accent/70' }
+                  { value: '12+', label: 'лет опыта', icon: 'Award', color: 'from-primary to-primary/70' },
+                  { value: '800+', label: 'установок', icon: 'TrendingUp', color: 'from-secondary to-secondary/70' },
+                  { value: '5 лет', label: 'гарантия', icon: 'Shield', color: 'from-coral to-coral/70' }
                 ].map((stat, i) => (
-                  <div key={i} className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 rounded-2xl blur-lg group-hover:blur-xl transition"></div>
-                    <div className="relative bg-white/80 backdrop-blur-sm border border-border rounded-2xl p-4 shadow-lg">
-                      <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
-                        {stat.value}
-                      </div>
-                      <div className="text-xs font-semibold text-muted-foreground mt-1">{stat.label}</div>
+                  <Card key={i} className="p-4 bg-white/90 backdrop-blur-sm border-2 hover:shadow-lg transition group">
+                    <Icon name={stat.icon} size={28} className={`mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} />
+                    <div className={`text-3xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                      {stat.value}
                     </div>
-                  </div>
+                    <div className="text-xs font-semibold text-muted-foreground mt-1">{stat.label}</div>
+                  </Card>
                 ))}
               </div>
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 rounded-[3rem] blur-3xl animate-pulse"></div>
-              <Card className="relative p-10 lg:p-14 bg-white/90 backdrop-blur-xl shadow-2xl border-2 border-primary/20 rounded-[3rem]">
-                <div className="text-center space-y-8">
-                  <div className="relative inline-block">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-3xl blur-xl opacity-50 animate-pulse"></div>
-                    <div className="relative w-32 h-32 mx-auto bg-gradient-to-br from-primary via-secondary to-accent rounded-3xl flex items-center justify-center shadow-2xl">
-                      <Icon name="Disc" size={64} className="text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-secondary/40 to-coral/40 rounded-3xl blur-3xl animate-pulse"></div>
+              <Card className="relative p-8 bg-white/95 backdrop-blur-xl shadow-2xl border-2 border-primary/20 rounded-3xl">
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="relative inline-block">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-coral rounded-3xl blur-lg opacity-50"></div>
+                      <div className="relative w-24 h-24 mx-auto bg-gradient-to-br from-primary via-secondary to-coral rounded-3xl flex items-center justify-center shadow-xl">
+                        <Icon name="HardHat" size={48} className="text-white" />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <h3 className="text-4xl font-black mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      Скрытая установка
+                    <h3 className="text-3xl font-black mt-6 mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                      Монтаж под ключ
                     </h3>
-                    <p className="text-lg text-muted-foreground font-medium">
-                      Оборудование полностью скрыто в потолке. Видны только элегантные решётки.
+                    <p className="text-muted-foreground font-medium">
+                      От замера до запуска системы
                     </p>
                   </div>
-                  <div className="grid grid-cols-3 gap-3">
-                    {['primary', 'secondary', 'accent'].map((color, i) => (
-                      <div key={i} className={`h-2 bg-gradient-to-r from-${color} to-${color}/50 rounded-full`}></div>
+
+                  <div className="space-y-3">
+                    {[
+                      { icon: 'Ruler', text: 'Бесплатный выезд и замер', color: 'primary' },
+                      { icon: 'FileText', text: 'Составление сметы за 1 день', color: 'secondary' },
+                      { icon: 'Hammer', text: 'Монтаж за 3-5 дней', color: 'coral' },
+                      { icon: 'CheckCircle2', text: 'Гарантия 5 лет на работы', color: 'accent' }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-muted/30 to-transparent hover:from-muted/50 transition">
+                        <div className={`w-10 h-10 rounded-lg bg-${item.color}/10 flex items-center justify-center flex-shrink-0`}>
+                          <Icon name={item.icon} size={20} className={`text-${item.color}`} />
+                        </div>
+                        <span className="font-semibold text-sm">{item.text}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -154,448 +165,422 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="advantages" className="py-24 px-4 lg:px-8 bg-gradient-to-b from-white to-primary/5">
+      {/* Services Section */}
+      <section id="services" className="py-20 px-4 lg:px-8 bg-white/60 backdrop-blur-sm">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16 space-y-4">
-            <Badge className="bg-secondary/10 text-secondary border-secondary/20 font-bold">Преимущества канальных систем</Badge>
-            <h2 className="text-5xl lg:text-6xl font-black">
-              Почему выбирают <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">канальные</span> системы?
+            <Badge className="bg-primary/10 text-primary border-primary/20 font-bold">Наши услуги</Badge>
+            <h2 className="text-4xl lg:text-5xl font-black">
+              Что мы <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">устанавливаем</span>
             </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Полный спектр работ по монтажу канальных систем кондиционирования
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { 
-                icon: 'EyeOff', 
-                title: 'Невидимость', 
-                desc: 'Блоки скрыты в потолке — только декоративные решётки',
-                gradient: 'from-primary to-primary/70'
+                icon: 'Building2', 
+                title: 'Квартиры и пентхаусы',
+                desc: 'Монтаж в жилых помещениях любой площади с учётом дизайна интерьера',
+                price: 'от 120 000 ₽',
+                color: 'primary'
               },
               { 
                 icon: 'Home', 
-                title: 'Весь дом — один климат', 
-                desc: 'Одна система охлаждает все комнаты равномерно',
-                gradient: 'from-secondary to-secondary/70'
+                title: 'Частные дома и коттеджи',
+                desc: 'Установка многозональных систем для загородной недвижимости',
+                price: 'от 250 000 ₽',
+                color: 'secondary'
               },
               { 
-                icon: 'Volume2', 
-                title: 'Тишина', 
-                desc: 'Уровень шума ниже 25 дБ — тише шёпота',
-                gradient: 'from-accent to-accent/70'
+                icon: 'Store', 
+                title: 'Коммерческие объекты',
+                desc: 'Офисы, магазины, рестораны — проектирование и монтаж под задачи бизнеса',
+                price: 'от 180 000 ₽',
+                color: 'coral'
               },
               { 
-                icon: 'Paintbrush', 
-                title: 'Свобода дизайна', 
-                desc: 'Не портит интерьер — никаких видимых блоков',
-                gradient: 'from-primary to-secondary'
+                icon: 'Sparkles', 
+                title: 'Ремонт и обслуживание',
+                desc: 'Диагностика, чистка, замена комплектующих, гарантийное обслуживание',
+                price: 'от 5 000 ₽',
+                color: 'accent'
               },
               { 
-                icon: 'Droplets', 
-                title: 'Увлажнение + очистка', 
-                desc: 'Встроенные системы фильтрации и увлажнения воздуха',
-                gradient: 'from-secondary to-accent'
+                icon: 'Fan', 
+                title: 'Системы вентиляции',
+                desc: 'Приточно-вытяжная вентиляция с рекуперацией в дополнение к кондиционированию',
+                price: 'от 90 000 ₽',
+                color: 'primary'
               },
               { 
-                icon: 'TrendingDown', 
-                title: 'Экономия энергии', 
-                desc: 'Инверторные технологии снижают потребление на 40%',
-                gradient: 'from-accent to-primary'
+                icon: 'Thermometer', 
+                title: 'Модернизация систем',
+                desc: 'Замена старого оборудования, расширение зон кондиционирования',
+                price: 'от 80 000 ₽',
+                color: 'secondary'
               }
-            ].map((advantage, i) => (
-              <Card 
-                key={i} 
-                className="p-8 hover:shadow-2xl transition-all duration-500 group border-2 hover:border-primary/50 hover:-translate-y-3"
-              >
-                <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${advantage.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xl`}>
-                  <Icon name={advantage.icon} size={40} className="text-white" />
+            ].map((service, i) => (
+              <Card key={i} className="p-6 hover:shadow-xl transition group border-2 hover:border-primary/30 bg-white/90 backdrop-blur-sm">
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br from-${service.color} to-${service.color}/70 flex items-center justify-center mb-4 group-hover:scale-110 transition shadow-lg`}>
+                  <Icon name={service.icon} size={28} className="text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{advantage.title}</h3>
-                <p className="text-muted-foreground leading-relaxed font-medium">{advantage.desc}</p>
+                <h3 className="text-xl font-black mb-2">{service.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{service.desc}</p>
+                <div className={`text-2xl font-black bg-gradient-to-r from-${service.color} to-${service.color}/70 bg-clip-text text-transparent`}>
+                  {service.price}
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="how" className="py-24 px-4 lg:px-8 bg-white">
+      {/* Installation Stages */}
+      <section id="stages" className="py-20 px-4 lg:px-8">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16 space-y-4">
-            <Badge className="bg-accent/10 text-accent border-accent/20 font-bold">Этапы работы</Badge>
-            <h2 className="text-5xl lg:text-6xl font-black">
-              Как происходит <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">установка</span>?
+            <Badge className="bg-secondary/10 text-secondary border-secondary/20 font-bold">Процесс установки</Badge>
+            <h2 className="text-4xl lg:text-5xl font-black">
+              Этапы <span className="bg-gradient-to-r from-secondary to-coral bg-clip-text text-transparent">монтажа</span>
             </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Прозрачный процесс от заявки до сдачи объекта
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { 
-                step: '01', 
-                title: 'Замер и расчёт', 
-                desc: 'Выезд инженера, замеры помещения, расчёт мощности',
-                icon: 'Ruler'
+                step: '01',
+                icon: 'Phone',
+                title: 'Заявка',
+                desc: 'Оставляете заявку на сайте или по телефону. Мастер связывается в течение 15 минут'
               },
               { 
-                step: '02', 
-                title: 'Проектирование', 
-                desc: 'Создание схемы воздуховодов и размещения оборудования',
-                icon: 'Pencil'
+                step: '02',
+                icon: 'Home',
+                title: 'Выезд и замер',
+                desc: 'Бесплатный выезд инженера на объект, замеры помещений, консультация'
               },
               { 
-                step: '03', 
-                title: 'Монтаж', 
-                desc: 'Установка внутреннего блока, прокладка воздуховодов',
-                icon: 'Wrench'
+                step: '03',
+                icon: 'FileCheck',
+                title: 'Расчёт и договор',
+                desc: 'Составляем смету с фиксированной ценой, заключаем договор с гарантиями'
               },
               { 
-                step: '04', 
-                title: 'Запуск', 
-                desc: 'Пусконаладка, тестирование, обучение пользованию',
-                icon: 'CheckCircle2'
+                step: '04',
+                icon: 'Hammer',
+                title: 'Монтаж',
+                desc: 'Установка оборудования за 3-5 дней, уборка мусора, запуск и настройка системы'
               }
             ].map((stage, i) => (
-              <div key={i} className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-accent rounded-3xl opacity-20 blur-xl group-hover:opacity-40 transition"></div>
-                <Card className="relative p-8 border-2 group-hover:border-primary/50 transition">
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="text-6xl font-black text-primary/10">{stage.step}</div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center shadow-lg">
-                      <Icon name={stage.icon} size={32} className="text-white" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{stage.title}</h3>
-                  <p className="text-muted-foreground font-medium">{stage.desc}</p>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" className="py-24 px-4 lg:px-8 bg-gradient-to-b from-primary/5 to-white">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-16 space-y-4">
-            <Badge className="bg-primary/10 text-primary border-primary/20 font-bold">Наши работы</Badge>
-            <h2 className="text-5xl lg:text-6xl font-black">
-              Реализованные <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">проекты</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: 'Пентхаус "Москва-Сити"', area: '280 м²', rooms: 6, type: 'Премиум' },
-              { name: 'Квартира ЖК "Сколково"', area: '150 м²', rooms: 4, type: 'Элитное жильё' },
-              { name: 'Офис "Сбер"', area: '420 м²', rooms: 12, type: 'Коммерция' },
-              { name: 'Коттедж в Рублёвке', area: '350 м²', rooms: 8, type: 'Загородный дом' },
-              { name: 'Салон красоты "Лотос"', area: '180 м²', rooms: 5, type: 'Бизнес' },
-              { name: 'Апартаменты "Остров"', area: '220 м²', rooms: 5, type: 'Премиум' }
-            ].map((project, i) => (
-              <Card 
-                key={i} 
-                className="overflow-hidden group hover:shadow-2xl transition-all duration-500 border-2 hover:border-secondary/50"
-              >
-                <div className="h-64 bg-gradient-to-br from-primary/40 via-secondary/30 to-accent/40 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent"></div>
-                  <Icon name="Building2" size={100} className="text-white/20 group-hover:scale-110 transition-transform" />
-                  <Badge className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm shadow-xl font-bold">
-                    {project.type}
-                  </Badge>
+              <Card key={i} className="relative p-6 bg-white/90 backdrop-blur-sm border-2 hover:border-secondary/40 hover:shadow-xl transition group">
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-coral rounded-2xl flex items-center justify-center shadow-lg font-black text-2xl text-white">
+                  {stage.step}
                 </div>
-                <div className="p-6 space-y-4">
-                  <h3 className="text-2xl font-bold">{project.name}</h3>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <Icon name="Maximize2" size={20} className="text-primary" />
-                      </div>
-                      <span className="font-semibold">{project.area}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                        <Icon name="Layers" size={20} className="text-accent" />
-                      </div>
-                      <span className="font-semibold">{project.rooms} зон климат-контроля</span>
-                    </div>
-                  </div>
-                </div>
+                <Icon name={stage.icon} size={36} className="text-secondary mb-4 group-hover:scale-110 transition" />
+                <h3 className="text-xl font-black mb-2">{stage.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{stage.desc}</p>
               </Card>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <Card className="inline-block p-6 bg-gradient-to-r from-coral/10 to-primary/10 border-2 border-coral/30">
+              <div className="flex items-center gap-4">
+                <Icon name="Clock" size={32} className="text-coral" />
+                <div className="text-left">
+                  <div className="text-2xl font-black bg-gradient-to-r from-coral to-primary bg-clip-text text-transparent">
+                    Средний срок монтажа
+                  </div>
+                  <div className="text-lg font-semibold text-muted-foreground">
+                    От заявки до запуска: 7-10 дней
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
-      <section id="prices" className="py-24 px-4 lg:px-8 bg-white">
-        <div className="container mx-auto max-w-7xl">
+      {/* Pricing Section */}
+      <section id="prices" className="py-20 px-4 lg:px-8 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 space-y-4">
-            <Badge className="bg-secondary/10 text-secondary border-secondary/20 font-bold">Тарифы</Badge>
-            <h2 className="text-5xl lg:text-6xl font-black">
-              Прозрачное <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">ценообразование</span>
+            <Badge className="bg-coral/10 text-coral border-coral/20 font-bold">Прозрачные цены</Badge>
+            <h2 className="text-4xl lg:text-5xl font-black">
+              Стоимость <span className="bg-gradient-to-r from-coral to-primary bg-clip-text text-transparent">монтажа</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                name: 'Стандарт',
-                price: '180 000',
-                popular: false,
+                name: 'Базовый',
+                price: '120 000',
+                area: 'до 60 м²',
                 features: [
-                  'Система на 2-3 комнаты',
-                  'Японское оборудование Daikin',
-                  'Монтаж воздуховодов',
-                  'Гарантия 3 года',
+                  'Канальный кондиционер 1 зона',
+                  'Стандартная прокладка трасс',
+                  'Монтаж внутреннего блока',
+                  'Установка внешнего блока',
+                  'Пусконаладочные работы',
+                  'Гарантия 3 года'
+                ],
+                color: 'accent',
+                popular: false
+              },
+              {
+                name: 'Оптимальный',
+                price: '250 000',
+                area: 'до 120 м²',
+                features: [
+                  'Многозональная система 2-3 зоны',
+                  'Скрытая прокладка трасс',
+                  'Дизайнерские решётки',
+                  'Система управления',
+                  'Wi-Fi модуль',
+                  'Гарантия 5 лет',
                   'Бесплатное ТО 1 год'
                 ],
-                gradient: 'from-primary to-primary/80'
+                color: 'primary',
+                popular: true
               },
               {
                 name: 'Премиум',
-                price: '320 000',
-                popular: true,
+                price: '450 000',
+                area: 'до 250 м²',
                 features: [
-                  'Система на 4-6 комнат',
-                  'Топовое оборудование Mitsubishi',
-                  'Увлажнение + ионизация',
-                  'Гарантия 5 лет',
-                  'Бесплатное ТО 3 года',
-                  'Умное управление'
-                ],
-                gradient: 'from-secondary to-secondary/80'
-              },
-              {
-                name: 'Индивидуальный',
-                price: 'от 500 000',
-                popular: false,
-                features: [
-                  'Система на весь дом/офис',
-                  'VRV/VRF мультизональные системы',
-                  'Полная автоматизация',
+                  'VRF-система на весь дом',
+                  'Индивидуальное проектирование',
+                  'Интеграция с умным домом',
+                  'Премиум оборудование',
+                  'Монтаж вентиляции',
                   'Гарантия 7 лет',
-                  'Бессрочное обслуживание',
-                  'Персональный инженер'
+                  'Бесплатное ТО 3 года'
                 ],
-                gradient: 'from-accent to-accent/80'
+                color: 'coral',
+                popular: false
               }
             ].map((plan, i) => (
-              <Card 
-                key={i} 
-                className={`p-8 space-y-6 relative overflow-hidden ${
-                  plan.popular 
-                    ? 'border-4 border-secondary shadow-2xl scale-105' 
-                    : 'border-2'
-                }`}
-              >
+              <Card key={i} className={`relative p-6 ${plan.popular ? 'border-4 border-primary shadow-2xl scale-105' : 'border-2'} bg-white/95 backdrop-blur-sm hover:shadow-xl transition`}>
                 {plan.popular && (
-                  <>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary to-accent rounded-bl-[3rem] flex items-center justify-center">
-                      <Icon name="Crown" size={32} className="text-white" />
-                    </div>
-                    <Badge className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-secondary to-accent text-white px-6 py-2 font-bold shadow-xl">
-                      🔥 Топ выбор
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <Badge className="bg-gradient-to-r from-primary to-secondary text-white font-bold px-6 py-2 text-sm shadow-lg">
+                      ⭐ Популярный
                     </Badge>
-                  </>
+                  </div>
                 )}
-                
-                <div className="space-y-3">
-                  <h3 className="text-3xl font-black">{plan.name}</h3>
-                  <div className="flex items-end gap-2">
-                    <span className={`text-5xl font-black bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}>
-                      {plan.price}
-                    </span>
-                    {plan.price !== 'от 500 000' && <span className="text-muted-foreground pb-2 font-semibold">₽</span>}
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-black mb-2">{plan.name}</h3>
+                  <div className="text-sm font-semibold text-muted-foreground mb-4">{plan.area}</div>
+                  <div className={`text-5xl font-black bg-gradient-to-r from-${plan.color} to-${plan.color}/70 bg-clip-text text-transparent`}>
+                    {plan.price} ₽
                   </div>
                 </div>
-
-                <ul className="space-y-4">
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Icon name="Check" size={16} className="text-white" />
-                      </div>
-                      <span className="font-medium">{feature}</span>
+                    <li key={j} className="flex items-start gap-2 text-sm">
+                      <Icon name="Check" size={18} className={`text-${plan.color} flex-shrink-0 mt-0.5`} />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-
                 <Button 
-                  className={`w-full h-14 text-lg font-bold shadow-xl ${
-                    plan.popular 
-                      ? 'bg-gradient-to-r from-secondary to-accent hover:from-secondary/90 hover:to-accent/90' 
-                      : 'bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70'
-                  }`}
+                  className={`w-full ${plan.popular ? `bg-gradient-to-r from-${plan.color} to-${plan.color}/80 hover:from-${plan.color}/90 hover:to-${plan.color}/70 shadow-lg` : 'variant-outline'} font-bold`}
+                  size="lg"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Выбрать тариф
+                  Выбрать пакет
                 </Button>
               </Card>
             ))}
           </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground text-lg mb-4">
+              💡 Точная стоимость рассчитывается после замера объекта
+            </p>
+            <Button 
+              size="lg"
+              variant="outline"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold"
+            >
+              <Icon name="Calculator" size={20} className="mr-2" />
+              Рассчитать мой объект
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section id="faq" className="py-24 px-4 lg:px-8 bg-gradient-to-b from-primary/5 to-white">
-        <div className="container mx-auto max-w-4xl">
+      {/* Guarantee Section */}
+      <section id="guarantee" className="py-20 px-4 lg:px-8">
+        <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-16 space-y-4">
-            <Badge className="bg-accent/10 text-accent border-accent/20 font-bold">FAQ</Badge>
-            <h2 className="text-5xl lg:text-6xl font-black">
-              Частые <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">вопросы</span>
+            <Badge className="bg-accent/10 text-accent border-accent/20 font-bold">Надёжность</Badge>
+            <h2 className="text-4xl lg:text-5xl font-black">
+              Наши <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">гарантии</span>
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                q: 'Чем канальная система отличается от обычных сплит-систем?',
-                a: 'Канальная система полностью скрыта в потолке и охлаждает сразу все помещения через воздуховоды. В отличие от настенных блоков, она не занимает место на стенах и не портит дизайн интерьера.'
+                icon: 'FileCheck',
+                title: 'Договор с фиксацией цены',
+                desc: 'Стоимость не изменится после начала работ'
               },
               {
-                q: 'Сколько времени занимает установка?',
-                a: 'Установка канальной системы занимает от 3 до 7 дней в зависимости от площади и сложности проекта. Мы работаем без остановки ремонта.'
+                icon: 'Shield',
+                title: 'Гарантия до 7 лет',
+                desc: 'На монтажные работы и установленное оборудование'
               },
               {
-                q: 'Можно ли установить в готовую квартиру с ремонтом?',
-                a: 'Да, но это потребует частичного демонтажа потолков для прокладки воздуховодов. Рекомендуем устанавливать на этапе чистовой отделки.'
+                icon: 'Users',
+                title: 'Сертифицированные мастера',
+                desc: 'Обучение на заводах производителей оборудования'
               },
               {
-                q: 'Какой уровень шума у канальных систем?',
-                a: 'Современные канальные системы работают очень тихо — 18-25 дБ. Это тише шёпота. Основной блок устанавливается в техническом помещении, поэтому шума практически нет.'
+                icon: 'Wrench',
+                title: 'Бесплатный сервис',
+                desc: 'Техобслуживание в период гарантии включено'
               }
-            ].map((faq, i) => (
-              <Card 
-                key={i} 
-                className="p-8 border-2 hover:border-primary/50 hover:shadow-xl transition-all group"
-              >
-                <h3 className="text-xl font-bold mb-4 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Icon name="HelpCircle" size={24} className="text-white" />
-                  </div>
-                  {faq.q}
-                </h3>
-                <p className="text-muted-foreground pl-16 leading-relaxed font-medium">{faq.a}</p>
+            ].map((item, i) => (
+              <Card key={i} className="p-6 text-center bg-white/90 backdrop-blur-sm border-2 hover:border-accent/40 hover:shadow-xl transition group">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition shadow-lg">
+                  <Icon name={item.icon} size={32} className="text-white" />
+                </div>
+                <h3 className="text-lg font-black mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-4 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/10 to-transparent"></div>
-        
-        <div className="container mx-auto max-w-3xl relative z-10">
-          <div className="text-center mb-12 space-y-4 text-white">
-            <h2 className="text-5xl lg:text-6xl font-black">Бесплатная консультация</h2>
-            <p className="text-2xl font-medium opacity-90">Расчёт стоимости за 10 минут</p>
-          </div>
-
-          <Card className="p-10 lg:p-12 bg-white shadow-2xl border-4 border-white/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-bold mb-2">Ваше имя</label>
-                  <Input
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    placeholder="Александр"
-                    className="h-14 border-2 text-lg"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold mb-2">Телефон</label>
-                  <Input
-                    required
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    placeholder="+7 (999) 123-45-67"
-                    className="h-14 border-2 text-lg"
-                  />
+      {/* Contact Form */}
+      <section id="contact" className="py-20 px-4 lg:px-8 bg-gradient-to-br from-primary/10 via-secondary/10 to-coral/10">
+        <div className="container mx-auto max-w-2xl">
+          <Card className="p-8 lg:p-12 bg-white/95 backdrop-blur-xl shadow-2xl border-2 border-primary/20">
+            <div className="text-center mb-8">
+              <div className="relative inline-block mb-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-coral rounded-3xl blur-xl opacity-50 animate-pulse"></div>
+                <div className="relative w-20 h-20 mx-auto bg-gradient-to-br from-primary via-secondary to-coral rounded-3xl flex items-center justify-center shadow-xl">
+                  <Icon name="Send" size={40} className="text-white" />
                 </div>
               </div>
+              <h2 className="text-4xl font-black mb-3">
+                <span className="bg-gradient-to-r from-primary to-coral bg-clip-text text-transparent">
+                  Бесплатный расчёт
+                </span>
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Оставьте заявку — мастер свяжется через 15 минут
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-bold mb-2">Ваше имя</label>
+                <Input
+                  placeholder="Иван"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
+                  className="h-12 border-2 focus:border-primary"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-bold mb-2">Телефон</label>
+                <Input
+                  type="tel"
+                  placeholder="+7 (___) ___-__-__"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  required
+                  className="h-12 border-2 focus:border-primary"
+                />
+              </div>
+
               <div>
                 <label className="block text-sm font-bold mb-2">Площадь помещения (м²)</label>
                 <Input
-                  required
+                  type="number"
+                  placeholder="80"
                   value={formData.area}
                   onChange={(e) => setFormData({...formData, area: e.target.value})}
-                  placeholder="120"
-                  className="h-14 border-2 text-lg"
+                  className="h-12 border-2 focus:border-primary"
                 />
               </div>
+
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full h-16 text-xl font-black bg-gradient-to-r from-primary via-secondary to-accent hover:from-primary/90 hover:via-secondary/90 hover:to-accent/90 shadow-2xl"
+                className="w-full bg-gradient-to-r from-primary via-secondary to-coral hover:from-primary/90 hover:via-secondary/90 hover:to-coral/90 text-lg h-14 shadow-xl font-bold"
               >
-                <Icon name="Sparkles" size={24} className="mr-3" />
+                <Icon name="Sparkles" size={22} className="mr-2" />
                 Получить бесплатный расчёт
               </Button>
-              <p className="text-xs text-muted-foreground text-center font-medium">
-                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+
+              <p className="text-xs text-muted-foreground text-center">
+                Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
               </p>
             </form>
           </Card>
         </div>
       </section>
 
-      <footer className="py-12 px-4 lg:px-8 bg-gradient-to-br from-foreground to-foreground/90 text-white">
+      {/* Footer */}
+      <footer className="py-12 px-4 lg:px-8 bg-foreground text-white">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
-                  <Icon name="Wind" size={28} className="text-white" />
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                  <Icon name="Wrench" size={20} className="text-white" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    DuctCool
-                  </h3>
-                  <p className="text-xs text-white/70 font-semibold">Канальные системы</p>
-                </div>
+                <h3 className="text-xl font-black">ClimateInstall</h3>
               </div>
-              <p className="text-sm text-white/70 font-medium">
-                Профессиональная установка канальных кондиционеров с 2017 года
+              <p className="text-sm text-white/70">
+                Профессиональный монтаж канальных кондиционеров с 2012 года
               </p>
             </div>
-            
+
             <div>
-              <h4 className="font-bold mb-4 text-lg">Услуги</h4>
-              <ul className="space-y-2 text-sm text-white/70 font-medium">
-                <li><a href="#how" className="hover:text-white transition">Установка</a></li>
-                <li><a href="#projects" className="hover:text-white transition">Проектирование</a></li>
-                <li><a href="#prices" className="hover:text-white transition">Обслуживание</a></li>
-              </ul>
+              <h4 className="font-bold mb-3">Контакты</h4>
+              <div className="space-y-2 text-sm text-white/70">
+                <div className="flex items-center gap-2">
+                  <Icon name="Phone" size={16} />
+                  <span>+7 (495) 123-45-67</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="Mail" size={16} />
+                  <span>info@climate-install.ru</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="MapPin" size={16} />
+                  <span>Москва, ул. Примерная, 1</span>
+                </div>
+              </div>
             </div>
-            
+
             <div>
-              <h4 className="font-bold mb-4 text-lg">Контакты</h4>
-              <ul className="space-y-3 text-sm text-white/70 font-medium">
-                <li className="flex items-center gap-2">
-                  <Icon name="Phone" size={16} className="text-accent" />
-                  <span>+7 (495) 999-00-11</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Mail" size={16} className="text-accent" />
-                  <span>info@ductcool.ru</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="MapPin" size={16} className="text-accent" />
-                  <span>Москва, Кутузовский пр-т, 12</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold mb-4 text-lg">Режим работы</h4>
-              <ul className="space-y-2 text-sm text-white/70 font-medium">
-                <li>Пн-Вс: 9:00 - 21:00</li>
-                <li className="text-accent font-bold">Консультации 24/7</li>
-              </ul>
+              <h4 className="font-bold mb-3">Режим работы</h4>
+              <div className="space-y-1 text-sm text-white/70">
+                <p>Пн-Пт: 9:00 - 20:00</p>
+                <p>Сб-Вс: 10:00 - 18:00</p>
+                <p className="text-coral font-semibold mt-2">Заявки принимаем 24/7</p>
+              </div>
             </div>
           </div>
-          
-          <div className="border-t border-white/10 pt-8 text-center text-sm text-white/70 font-medium">
-            <p>&copy; 2024 DuctCool. Все права защищены.</p>
+
+          <div className="border-t border-white/20 pt-8 text-center text-sm text-white/50">
+            © 2024 ClimateInstall. Все права защищены.
           </div>
         </div>
       </footer>
